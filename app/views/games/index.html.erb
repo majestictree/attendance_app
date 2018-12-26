@@ -1,0 +1,8 @@
+<h3>試合一覧</h3>
+<% @games.each do |game| %>
+  <p><%= "#{game.title}" %></p>
+  <p><%= "試合日：#{game.date}" %></p>
+  <p><%= "場所：#{game.place}" %></p>
+  <p><%= "試合時間：#{game.time.strftime('%H:%M')}" %></p>
+  <p><%= "集合時間：#{(game.time - 1.hour).strftime('%H:%M')}" %></p>
+<% end %>

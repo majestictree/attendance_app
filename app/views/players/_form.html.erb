@@ -1,0 +1,9 @@
+<%= form_for @player do |f| %>
+  <%= f.label :back_number %>
+  <%= f.number_field :back_number, min: 0 %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>

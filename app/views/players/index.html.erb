@@ -1,0 +1,14 @@
+<div class="container">
+<h3>選手一覧</h3>
+    <div class="row">
+      <ul class="list-group list-group-flush">
+        <% @players.each do |player| %>
+          <li class="list-group-item">
+            <%= "背番号:#{player.back_number}  #{player.name}" %>
+            <%= link_to "削除", player_path(player), method: :delete, class: "btn btn-outline-danger btn-sm float-right" %>
+            <%= link_to "編集", edit_player_path(player), class: "btn btn-outline-primary btn-sm float-right" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+</div>
