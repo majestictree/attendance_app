@@ -1,5 +1,32 @@
-<p><%= "#{@game.title}" %></p>
-<p><%= "試合日：#{@game.date}" %></p>
-<p><%= "場所：#{@game.place}" %></p>
-<p><%= "試合時間：#{@game.time.strftime('%H:%M')}" %></p>
-<p><%= "集合時間：#{(@game.time - 1.hour).strftime('%H:%M')}" %></p>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href=<%= games_path %>>試合一覧</a></li>
+      <li class="breadcrumb-item active" aria-current="page">出欠登録</li>
+    </ol>
+  </nav>
+  <%= render 'gamedetail' %>
+  <%= "☆参加人数：#{@game.attendances.where(attendance: "出").count}人" %>
+    <ul class="list-group list-group-flush">
+      <% @players.each do |p| %>
+        <% attend = p.attendances.find_by(game_id: @game.id) %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-7">
+              <% if attend.blank? %>
+              <%= link_to "#{p.back_number} #{p.name}", new_game_attendance_url(@game, player_id: p.id) %>
+              <% else %>
+              <%= link_to "#{p.back_number} #{p.name}", edit_game_attendance_url(@game, player_id: p.id) %>
+            </div>
+            <div class="col-5">
+              <%= attend.attendance unless attend.attendance.nil? %>
+              <%= attend.judge unless attend.judge.nil? %>
+              <%= attend.comment unless attend.comment.nil? %>
+            </div>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+</div>

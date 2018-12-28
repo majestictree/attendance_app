@@ -1,8 +1,22 @@
-<h3>試合一覧</h3>
-<% @games.each do |game| %>
-  <p><%= "#{game.title}" %></p>
-  <p><%= "試合日：#{game.date}" %></p>
-  <p><%= "場所：#{game.place}" %></p>
-  <p><%= "試合時間：#{game.time.strftime('%H:%M')}" %></p>
-  <p><%= "集合時間：#{(game.time - 1.hour).strftime('%H:%M')}" %></p>
-<% end %>
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">試合一覧</li>
+    </ol>
+  </nav>
+  <h3>試合一覧</h3>
+  <div class="row">
+    <ul class="list-group list-group-flush">
+      <% @games.each do |game| %>
+      <li class="list-group-item">
+        <p><%= link_to "#{game.title}", game_path(game) %></p>
+        <p><%= "試合日：#{game.date}" %></p>
+        <%= link_to "出欠", game_path(game), class: "btn btn-outline-primary btn-sm float-left" %>
+        <%= link_to "削除", game_path(game), method: :delete, class: "btn btn-outline-danger btn-sm float-right" %>
+        <%= link_to "編集", edit_game_path(game), class: "btn btn-outline-secondary btn-sm float-right" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

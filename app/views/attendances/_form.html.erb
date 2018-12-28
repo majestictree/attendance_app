@@ -1,0 +1,19 @@
+<p><%= @player.name %></p>
+<%= form_for [@game, @attendance] do |a| %>
+  <%= a.hidden_field :player_id, value: @player.id %>
+  <div class="form-group">
+    <%= a.label :attendance, "出欠" %>
+    <%= a.select :attendance, [["出", "出"], ["欠", "欠"], ["未", "未"]], include_blank: true, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= a.label :judge, "審判" %>
+    <%= a.select :judge, [["主", "主"], ["副", "副"], ["四", "四"]], include_blank: true, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= a.label :comment, "コメント" %>
+    <%= a.text_field :comment, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= a.submit %>
+  </div>
+<% end %>

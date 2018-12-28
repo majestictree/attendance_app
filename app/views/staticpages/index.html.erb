@@ -1,0 +1,22 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+  </nav>
+  <h3>NECサッカー部</h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <%= link_to "試合一覧", games_path %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to "選手一覧", players_path %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to "選手登録", new_player_path %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to "試合登録", new_game_path %>
+    </li>
+  </ul>
+</div>

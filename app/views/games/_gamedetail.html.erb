@@ -1,0 +1,6 @@
+<p><%= "試合日　：#{@game.date.strftime('%Y年%m月%d日(%a)')}" %></p>
+<p><%= "#{@game.title}" %></p>
+<p><%= "対戦場所：#{@game.place}" %></p>
+<p><%= "集合時刻：#{(@game.time - 1.hour).strftime('%H:%M')}" %></p>
+<p><%= "開始時刻：#{@game.time.strftime('%H:%M')}" %></p>
+<hr>
