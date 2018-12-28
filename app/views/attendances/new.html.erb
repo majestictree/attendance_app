@@ -1,4 +1,11 @@
 <div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><%= link_to "試合一覧", games_path %></li>
+      <li class="breadcrumb-item active" aria-current="page">出欠登録</li>
+    </ol>
+  </nav>
   <%= render 'games/gamedetail' %>
   <%= render 'form' %>
 </div>
