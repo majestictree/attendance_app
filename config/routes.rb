@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :players
+  resources :players, except: [:show]
   resources :games do
-    resources :attendances
+    resources :attendances, except: [:index, :show]
   end
   root 'staticpages#index'
 

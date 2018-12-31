@@ -8,8 +8,13 @@ class AttendancesController < ApplicationController
   def create
     game = Game.find(params[:game_id])
     @attendance = game.attendances.new(attendance_params)
-    @attendance.save
-    redirect_to game_path(game)
+    name = Player.find(params[:attendance][:player_id]).name
+    if @attendance.save
+      flash[:success] = "#{name}さんの出欠情報を登録しました"
+      redirect_to game_path(game)
+    else
+      redirect_to root_url
+    end
   end
 
   def edit
@@ -20,8 +25,14 @@ class AttendancesController < ApplicationController
 
   def update
     @attendance = Attendance.find(params[:id])
-    @attendance.update(attendance_params)
-    redirect_to game_path(params[:game_id])
+    if @attendance.update(attendance_params)
+      name = Player.find(params[:attendance][:player_id]).name
+      flash[:success] = "#{name}さんの出欠情報を編集しました"
+      redirect_to game_path(params[:game_id])
+    else
+      flash[:danger] = "出欠の編集に失敗しました"
+      redirect_to game_path(params[:game_id])
+    end
   end
 
   private

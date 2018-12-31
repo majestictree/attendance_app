@@ -10,7 +10,7 @@
     <% @players.each do |player| %>
       <li class="list-group-item">
         <%= "背番号:#{player.back_number}  #{player.name}" %>
-        <%= link_to "削除", player_path(player), method: :delete, class: "btn btn-outline-danger btn-sm float-right" %>
+        <%= link_to "削除", player_path(player), method: :delete, data: {confirm: '本当に削除していいですか？' }, class: "btn btn-outline-danger btn-sm float-right" %>
         <%= link_to "編集", edit_player_path(player), class: "btn btn-outline-primary btn-sm float-right" %>
       </li>
     <% end %>

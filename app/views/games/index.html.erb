@@ -6,17 +6,13 @@
     </ol>
   </nav>
   <h3>試合一覧</h3>
-  <div class="row">
     <ul class="list-group list-group-flush">
       <% @games.each do |game| %>
       <li class="list-group-item">
-        <p><%= link_to "#{game.title}", game_path(game) %></p>
-        <p><%= "試合日：#{game.date}" %></p>
+        <p><%= link_to "#{game.title}", game_path(game) %></br><%= "試合日：#{game.date}" %></p>
         <%= link_to "出欠", game_path(game), class: "btn btn-outline-primary btn-sm float-left" %>
-        <%= link_to "削除", game_path(game), method: :delete, class: "btn btn-outline-danger btn-sm float-right" %>
-        <%= link_to "編集", edit_game_path(game), class: "btn btn-outline-secondary btn-sm float-right" %>
+        <%= link_to "試合情報編集", edit_game_path(game), class: "btn btn-outline-secondary btn-sm float-right" %>
       </li>
       <% end %>
     </ul>
-  </div>
 </div>
