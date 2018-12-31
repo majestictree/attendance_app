@@ -10,16 +10,16 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <%= link_to "試合一覧", games_path %>
+      <%= link_to "試合一覧", games_path, class: "btn btn-outline-success btn-block" %>
     </li>
     <li class="list-group-item">
-      <%= link_to "選手一覧", players_path %>
+      <%= link_to "選手一覧", players_path, class: "btn btn-outline-danger btn-block" %>
     </li>
     <li class="list-group-item">
-      <%= link_to "試合登録", new_game_path %>
+      <%= link_to "試合登録", new_game_path, class: "btn btn-outline-warning btn-block" %>
     </li>
     <li class="list-group-item">
-      <%= link_to "選手登録", new_player_path %>
+      <%= link_to "選手登録", new_player_path, class: "btn btn-outline-info btn-block" %>
     </li>
   </ul>
 </div>
