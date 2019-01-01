@@ -9,7 +9,7 @@
     <ul class="list-group list-group-flush">
       <% @games.each do |game| %>
       <li class="list-group-item">
-        <p><%= link_to "#{game.title}", game_path(game) %></br><%= "試合日：#{game.date}" %></p>
+        <p><%= link_to "#{game.title}", game_path(game) %></br><%= "試合日：#{game.date}　　場所：#{game.place}" %></p>
         <%= link_to "出欠", game_path(game), class: "btn btn-outline-primary btn-sm float-left" %>
         <%= link_to "試合情報編集", edit_game_path(game), class: "btn btn-outline-secondary btn-sm float-right" %>
       </li>
