@@ -11,12 +11,12 @@
       <%= g.text_field :place, placeholder: "対戦場所", class: "form-control" %>
     </div>
     <div class="form-group col-11">
-      <%= g.label :time, "試合時刻" %>
-      <%= g.time_select :time, include_blank: true, minute_step: 10 %>
-    </div>
-    <div class="form-group col-11">
       <%= g.label :meetingtime, "集合時刻" %>
       <%= g.time_select :meetingtime, include_blank: true, minute_step: 10 %>
+    </div>
+    <div class="form-group col-11">
+      <%= g.label :time, "試合時刻" %>
+      <%= g.time_select :time, include_blank: true, minute_step: 10 %>
     </div>
     <div class="form-group">
       <%= g.submit %>

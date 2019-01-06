@@ -36,6 +36,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by(id: params[:id])
     @players = Player.all.order(:back_number)
+    @attendances = @game.attendances
   end
 
   def destroy
