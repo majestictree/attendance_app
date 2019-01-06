@@ -19,8 +19,8 @@ class AttendancesController < ApplicationController
 
   def edit
     @game = Game.find(params[:game_id])
-    @attendance = @game.attendances[0]
     @player = Player.find_by(id: params[:player_id])
+    @attendance = @player.attendances.find_by(game_id: @game.id)
   end
 
   def update

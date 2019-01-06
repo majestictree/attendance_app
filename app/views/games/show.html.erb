@@ -13,19 +13,21 @@
         <% attend = p.attendances.find_by(game_id: @game.id) %>
         <li class="list-group-item">
           <div class="row">
-            <div class="col-7">
               <% if attend.blank? %>
-              <%= link_to "#{p.back_number} #{p.name}", new_game_attendance_url(@game, player_id: p.id) %>
+                <div class="col-7">
+                  <%= link_to "#{p.back_number} #{p.name}", new_game_attendance_url(@game, player_id: p.id) %>
+                </div>
               <% else %>
-              <%= link_to "#{p.back_number} #{p.name}", edit_game_attendance_url(@game, player_id: p.id) %>
-            </div>
-            <div class="col-5">
-              <%= attend.attendance unless attend.attendance.nil? %>
-              <%= attend.judge unless attend.judge.nil? %>
-              <%= attend.comment unless attend.comment.nil? %>
-            </div>
+                <div class='col-7'>
+                  <%= link_to "#{p.back_number} #{p.name}", edit_game_attendance_url(@game, attend.id, player_id: p.id) %>
+                </div>
+                <div class="col-5">
+                  <%= attend.attendance unless attend.attendance.nil? %>
+                  <%= attend.judge unless attend.judge.nil? %>
+                  <%= attend.comment unless attend.comment.nil? %>
+                </div>
+              <% end %>
           </div>
-          <% end %>
         </li>
       <% end %>
     </ul>
