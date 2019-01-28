@@ -18,8 +18,8 @@
       <%= g.label :time, "試合時刻" %>
       <%= g.time_select :time, include_blank: true, minute_step: 10 %>
     </div>
-    <div class="form-group">
-      <%= g.submit %>
+    <div class="form-group col-11">
+      <%= g.submit '確定' %>
     </div>
   </div>
 <% end %>
