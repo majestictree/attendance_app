@@ -18,10 +18,10 @@
                   <%= link_to "#{p.back_number} #{p.name}", new_game_attendance_url(@game, player_id: p.id) %>
                 </div>
               <% else %>
-                <div class='col-4'>
+                <div class='col-5'>
                   <%= link_to "#{p.back_number} #{p.name}", edit_game_attendance_url(@game, attend.id, player_id: p.id) %>
                 </div>
-                <div class="col-2">
+                <div class="col-1">
                   <%= attend.attendance unless attend.attendance.nil? %>
                   <%= attend.judge unless attend.judge.nil? %>
                 </div>
