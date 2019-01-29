@@ -14,18 +14,18 @@
         <li class="list-group-item">
           <div class="row">
             <% if attend.blank? %>
-              <div class="col-6">
+              <div class="col-5">
                 <%= link_to "#{p.back_number} #{p.name}", new_game_attendance_url(@game, player_id: p.id) %>
               </div>
             <% else %>
-              <div class='col-6'>
+              <div class='col-5'>
                 <%= link_to "#{p.back_number} #{p.name}", edit_game_attendance_url(@game, attend.id, player_id: p.id) %>
               </div>
-              <div class="col-6">
+              <div class="col-7">
                 <%= attend.attendance unless attend.attendance.nil? %>
                 <%= attend.judge unless attend.judge.nil? %>
               </div>
-              <div class="col-8 offset-4">
+              <div class="col-7 offset-5">
                 <%= attend.comment unless attend.comment.nil? %>
               </div>
             <% end %>
