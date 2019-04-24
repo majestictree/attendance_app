@@ -1,0 +1,22 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">試合一覧</li>
+    </ol>
+  </nav>
+  <h3>過去の試合一覧</h3>
+    <ul class="list-group list-group-flush">
+      <% @games.each do |game| %>
+      <li class="list-group-item">
+        <p>
+          <%= link_to "#{game.title}", game_path(game) %></br>
+          <%= "試合日：#{game.date}　　場所：#{game.place}" %></br>
+          <%= "☆参加人数：#{game.attendances.where(attendance: "出").count}人" %>
+        </p>
+        <%= link_to "出欠", game_path(game), class: "btn btn-outline-primary btn-sm float-left" %>
+        <%= link_to "試合情報編集", edit_game_path(game), class: "btn btn-outline-secondary btn-sm float-right" %>
+      </li>
+      <% end %>
+    </ul>
+</div>

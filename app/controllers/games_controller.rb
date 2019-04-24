@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all.order(date: :desc)
+    @games = Game.where('date >= ?', Date.today - 1).order(date: :asc)
   end
 
   def new
