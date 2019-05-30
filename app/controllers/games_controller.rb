@@ -3,6 +3,10 @@ class GamesController < ApplicationController
     @games = Game.where('date >= ?', Date.today - 1).order(date: :asc)
   end
 
+  def calendar
+    @games = Game.where('date >= ?', Date.today - 1).order(date: :asc)
+  end
+
   def new
     @game = Game.new
   end

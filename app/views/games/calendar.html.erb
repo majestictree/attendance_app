@@ -5,6 +5,15 @@
       <li class="breadcrumb-item active" aria-current="page">試合一覧</li>
     </ol>
   </nav>
+  <%= month_calendar events: @games do |date, games| %>
+    <%= date.strftime("%-d") %>
+
+    <% games.each do |game| %>
+      <div>
+        <%= link_to "☆", game_path(game)  %>
+      </div>
+    <% end %>
+  <% end %>
     <ul class="list-group list-group-flush">
       <% @games.each do |game| %>
       <li class="list-group-item">
